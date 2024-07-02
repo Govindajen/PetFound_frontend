@@ -1,0 +1,178 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.headerContainer {
+  height: 10vh;
+  padding: 16px;
+
+  border-bottom: 2px solid rgb(0, 0, 0, 0.7);
+  background-color: #0a2472;
+}
+
+.container {
+    width: 100%;
+    height: 90vh;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.side {
+    width: 30%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* SIDE TOP ------------------------------------------------------------ */
+.profileInfo {
+    width: 100%;
+    height: 70%;
+    background-color: rgb(240, 240, 240, 0.7);
+    border-radius: 10px;
+    padding: 6px;
+
+    display: flex;
+    flex-direction: column;
+}
+.imageContainer {
+    width: 100%;
+    max-height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imageDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.profileImg {
+    object-fit: cover;
+    border-radius: 15%;
+
+    border: 1px solid #007bff
+}
+.profileAbout {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.iconWithUsername {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.bardgeIcon {
+    margin: 0 6px;
+}
+.profileNames {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ----------------------------- */
+.aboutUser {
+    width: 100%;
+    height: 40%;
+    background-color: rgb(10, 190, 55);
+}
+
+.contactList {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactIcon {
+    font-size: 16px;
+    margin: 3px 10px;
+}
+.contactIcon:hover {
+    transition: 0.8s;
+    color: #FFC60A;
+}
+
+/* ^^^^^^^^^ SIDE TOP ------------------------------------------------------------ */
+.accountSettings {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(240, 240, 240, 0.7);
+    border-radius: 10px;
+    padding: 6px;
+}
+
+
+.contentContainer {
+    width: 70%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contentDiv {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(240, 240, 240, 0.7);
+    border-radius: 10px;
+    padding: 6px;
+}
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+@media screen and (max-width: 960px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100%;
+      }
+    .container {
+        width: 100%;
+        height: 90vh;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .side {
+        width: 100%;
+        height: 80%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .contentContainer {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+}

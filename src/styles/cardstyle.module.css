@@ -1,0 +1,142 @@
+.main {
+    margin: 8px;
+    width: 256px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background-color: #0051ad;
+    border-radius: 10px;
+}
+
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 8px;
+    padding-bottom: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+/* ---------------- ABSOLUTE DIV TOP AND BOTTOM OF IMAGE -------------- */
+.type {
+    position: absolute;
+    width: 90%;
+    height: 95%;
+    margin-left: 5px;
+    margin-top: 8px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.topType {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 10%;
+}
+
+.centerType {
+    width: 100%;
+    cursor: pointer;
+    height: 90%;
+}
+.bottomType {
+    width: 100%;
+    height: 12%;
+    padding: 3px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bookmarkIcon {
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: azure;
+}
+
+.bookmarkIcon:hover {
+    transition: 0.8s;
+    color: #FFC60A;
+}
+
+.found {
+    padding: 3px 12px 3px 12px;
+    background-color: #0a2472;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(189, 23, 189);
+}
+.Lost {
+    padding: 3px 12px 3px 12px;
+    background-color: #0a2472;
+    border-radius: 10px;    
+    font-weight: bold;
+    color: rgb(7, 168, 160);
+}
+
+/* --------------------------------------------------------------------------------- */
+.theImage {
+    border-top: 0px solid transparent;
+    object-fit: cover;
+    border-radius: 15px;
+
+    
+    width: 100%;
+    height: 100%;
+}
+
+.cardDescription {
+    padding: 3px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cardDescriptionSection {
+    width: 95%;
+    margin: 0.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: azure;
+}
+.descSection {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descText {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.descTextTop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.descSectionTop {
+    width: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconWithUsername {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username:hover {
+    transition: 0.8s;
+    color: #FFC60A;
+}

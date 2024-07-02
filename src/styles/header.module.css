@@ -1,0 +1,246 @@
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+/* ------------------- LOGO container informations CSS --------------------- */
+.logoContainer {
+    width: 25%;
+    height: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.petText {
+    color: azure;
+}
+.foundText {
+    color: #FFC60A;
+}
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ------------------- SEARCH BAR container informations CSS --------------------- */
+
+.searchBarContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-evenly;
+    align-items: center;
+}
+.dedicateBTNS {
+    height: 100%;
+    width: 30%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btnFound {
+    color: rgb(189, 23, 189);
+    font-size: large;
+    font-weight: 800;
+
+    border: transparent;
+    width: 72px;
+    height: 32px;
+    border-radius: 1px;
+    border-bottom: 2px solid #FFC60A;
+    background-color: transparent;
+    cursor: pointer;
+    
+}
+
+.btnLost {
+    color: rgb(7, 168, 160);
+    font-size: large;
+    font-weight: 800;
+
+    border: transparent;
+    width: 72px;
+    height: 32px;
+    border-radius: 1px;
+    border-bottom: 2px solid #FFC60A;
+    background-color: transparent;
+    cursor: pointer;
+    
+}
+
+.btnFound:hover {
+    border: transparent;
+    border-radius: 1px;
+    border-bottom: 2px solid #9e7900;
+    transition: 0.8s;
+    color: #FFC60A;
+    
+}
+
+.btnLost:hover {
+    border: transparent;
+    border-radius: 1px;
+    border-bottom: 2px solid #9e7900;
+    transition: 0.8s;
+    color: #FFC60A;
+    
+}
+
+.searchBarDiv {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectBtn {
+    border: transparent;
+    width: 78px;
+    height: 32px;
+    background-color: white;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+
+}
+
+.searchInput {
+    border: transparent;
+    width: 160px;
+    height: 32px;
+    background-color: white;
+}
+
+.searchBtn {
+    border: transparent;
+    width: 78px;
+    height: 32px;
+    background-color: white;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+}
+.searchBtn:hover {
+    transition: 0.8s;
+    background-color: #FFC60A;
+    color: azure;
+    font-size: bold;
+}
+
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+
+
+/* ------------------- PROFILE container informations CSS --------------------- */
+
+.profileContainer {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.userIcon {
+    margin: 0 8px;
+    color: azure;
+    font-size: 2em;
+    cursor: pointer;
+}
+.userIcon:hover {
+    transition: 0.8s;
+    color: #FFC60A;
+    
+}
+.usernameDiv {
+    color: azure;
+    width: 75%;
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+}
+.username {
+    color: azure;
+    cursor: pointer;
+}
+.username:hover {
+    transition: 0.8s;
+    color: #FFC60A;
+    
+}
+.hamburgerMenu {
+    display: none;
+}
+
+
+.langOption {
+    width: 52px;
+    height: 32px;
+    font-size: 24px;
+    text-align: center;
+    background-color: azure;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.langOption:hover {
+    transition: 0.8s;
+    background-color: #FFC60A;
+}
+/* ------------------------------------------------------------------------------- */
+
+
+@media screen and (max-width: 960px) {
+    .main {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;    
+    }
+    .logoContainer {
+        width: 90%;
+        flex-direction: row;
+    }
+    .hamburgerMenu {
+        height: 100%;
+        width: 5%;
+        display: flex;
+        justify-content: center;    
+        align-items: center;
+    }
+    .hamburgerIcon {
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+    .hamburgerIcon:hover {
+        color: #FFC60A;
+    }
+
+    .searchBarContainer {
+        display: none;
+    }
+    .profileContainer {
+        display: none;
+    }
+}

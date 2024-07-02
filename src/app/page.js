@@ -1,94 +1,77 @@
+'use client';
 import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
-export default function Home() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+
+import langJSON from '../lib/lang.json'
+import styles from "../styles/home.module.css";
+import PetCard from '../components/Petcard';
+
+import Header from '../components/Header';
+import CreatePost from "@/components/newpost";
+
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+
+export default function Home(props) {
+
+  const account = useSelector((state) => state.account.value);
+  const [threads, setThreads] = useState([''])
+  const [lang, setLang] = useState({})
+
+  useEffect( () => {
+    fetch('https://pet-found-backend.vercel.app/threads/getall').then( (response) => response.json()).then( (data) => {
+      setThreads(data)
+    })
+
+    if(account.lang === 'en') {
+      setLang(langJSON.EN)
+    } else if (account.lang === 'fr') {
+      setLang(langJSON.FR)
+    }
+
+
+  }, [])
+
+  const threadsData = threads.map( (data) => {
+    if(data) {
+      return (<PetCard username={data.user.username} rank={data.user.rank} petname={data.petname} image={data.image} type={data.type} status={data.status} location={data.location} token={data.token} savedby={data.savedby}/>)
+    }
+  })
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
+    <main className={styles.main} key={'homeMain'}>
+      <div className={styles.headerContainer}>
+        <Header />
+      </div>
+
+
+      <div className={styles.container} key='homepage'>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <p>Home page</p>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <div className={styles.topbarCards} key='topCardBtns'>
+          <div className={styles.leftBarCards}>
+            btns filter
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+          <div className={styles.rightBarCards}>
+            <CreatePost lang={lang}/>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          </div>
+        </div>
+        <div className={styles.cardsContainer} key='cardsContainer'>
+          {threadsData}
+        </div>
+
+        
       </div>
     </main>
   );

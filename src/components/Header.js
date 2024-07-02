@@ -1,0 +1,139 @@
+'use client';
+import styles from '../styles/header.module.css';
+import langJSON from '../lib/lang.json'
+
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLangReducer } from '../lib/reducers/account';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faCircleUser, faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link';
+
+export default function Header(props) {
+
+    const dispatch = useDispatch();
+    const account = useSelector((state) => state.account.value);
+    const [lang, setLang] = useState({});
+
+/*  ---------------------------------------------------------------------- */
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+
+        if(account.lang === 'en') {
+          setLang(langJSON.EN)
+        } else if (account.lang === 'fr') {
+          setLang(langJSON.FR)
+        }
+    
+
+
+    }, []);
+
+    if (!isClient) {
+        return null;
+    } else {
+/*  ---------------------------------------------------------------------- */
+
+    
+    const handleUserIconClick = () => {
+        window.location.replace("/login");
+    };
+
+
+    let langDiv = (<p></p>)
+
+if (account.lang === 'en') {
+    langDiv = (
+        <p title='English' className={styles.langOption} onClick={() => {dispatch(setLangReducer('fr')); location.reload();}}>🇬🇧</p>
+    )
+} else if (account.lang === 'fr') {
+    langDiv = (
+        <p title='French' className={styles.langOption} onClick={() => {dispatch(setLangReducer('en')); location.reload();}}>🇫🇷</p>
+    )
+}
+
+
+
+
+
+
+        
+        return (
+            <div className={styles.main}>
+                <div className={styles.logoContainer}>
+                    <Link className={styles.link} href={`/`}>
+                        <p className={styles.petText}>Pet 
+                            <span className={styles.foundText}> Found</span>
+                        </p>
+                    </Link>
+                </div>
+
+                <div className={styles.hamburgerMenu}>
+                    <span className={styles.hamburgerIcon}>
+                        <FontAwesomeIcon icon={faBars} />
+                    </span>
+                </div>
+
+
+                <div className={styles.searchBarContainer}>
+                    <div className={styles.dedicateBTNS}>
+                        <button className={styles.btnFound}>Found</button>
+                        <button className={styles.btnLost}>Lost</button>
+                    </div>
+
+                    <div className={styles.searchBarDiv}>
+                        <select id="pet-select" className={styles.selectBtn}>
+                            <option value="announce">Announce</option>
+                            <option value="user">User</option>
+                        </select>
+
+                        <input 
+                         className={styles.searchInput}
+                            type="search" 
+                            id="site-search" 
+                            name="q" 
+                            placeholder='Announce/username'
+                            value={''} 
+                            />
+                        <button className={styles.searchBtn}>{lang.header.searchBar.btn}</button>
+                    </div>
+                </div>
+
+                <div className={styles.profileContainer}>
+                    <div className={styles.usernameDiv}>
+                        {account.username ? (
+                            <>
+                            <div>
+                                <p className={styles.welcome}>{lang.header.about.welcome}</p>
+                                <Link href={`/profile/${encodeURIComponent(account.username)}`} className={styles.username}>
+                                    @{account.username}
+                                </Link>
+                            </div>
+
+                            <div>
+                            <Link href={`/profile/${encodeURIComponent(account.username)}`}>
+                                <span className={styles.userIconSignIn}>
+                                    <FontAwesomeIcon icon={faCircleUser} className={styles.userIcon} />
+                                </span>
+                            </Link>
+                            </div>
+                            </>
+                        ) : (
+                            <div>
+                                <FontAwesomeIcon
+                                    icon={faCircleUser}
+                                    className={styles.userIcon}
+                                    onClick={handleUserIconClick}
+                                    />
+                            </div>
+                        )}
+                    </div>
+                    {langDiv}
+                </div>
+            </div>
+    );
+}
+}

@@ -1,0 +1,47 @@
+{
+    "EN": {
+        "header": {
+            "searchBar": {
+                "btn": "Search"
+            },
+            "about": {
+                "welcome": "Welcome back!"
+            }
+        },
+        "modal": {
+            "createPost": {
+                "btn": "Create Post",
+                "titleModal": "Create a new Post"
+            }
+        },
+        "profile": {
+            "side": {
+                "telephone": "Telephone",
+                "accountSettings": "Settings"
+            }
+        }
+    },
+
+    "FR": {
+        "header": {
+            "searchBar": {
+                "btn": "Chercher"
+            },
+            "about": {
+                "welcome": "Benvenue!"
+            }
+        },
+        "modal": {
+            "createPost": {
+                "btn": "Creer Post",
+                "titleModal": "Creer un nouveau post"
+            }
+        },
+        "profile": {
+            "side": {
+                "telephone": "Téléphone",
+                "accountSettings": "Parametres"
+            }
+        }
+    }
+}

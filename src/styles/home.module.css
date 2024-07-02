@@ -1,0 +1,88 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.headerContainer {
+  height: 10vh;
+  padding: 16px;
+
+  border-bottom: 2px solid rgb(0, 0, 0, 0.7);
+  background-color: #0a2472;
+}
+
+.container {
+  overflow: auto;
+  padding: 16px;
+  height: 90vh;
+}
+
+.cardsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* --------------------- TOP BAR OF CARDS -------------------------------- */
+
+.topbarCards {
+  border-radius: 10px;
+  background-color: rgb(242, 242, 242, 0.8);
+  width: 100%;
+  height: 56px;
+  padding: 6px;
+  margin: 8px 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.leftBarCards {
+  height: 100%;
+  width: 60%;
+  background-color: blue;
+}
+
+.rightBarCards {
+  height: 100%;
+  width: 30%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* BTNS AND CSS OF MODAL "Create Post" */
+.newPostBtn {
+  border-radius: 20px;
+  border: 1px solid rgb(107, 107, 107);
+  width: 128px;
+  height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.newPostBtn:hover {
+  transition: 0.8s;
+  border: transparent;
+  background-color: #FFC60A;
+}
+
+.createPostIcon {
+  margin: 0 3px;
+}
+.spanNewPost {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+/* -----.----------.------------.-----------.---- */
+
+
+/* -------------------------------------------------------------------------- */
