@@ -166,6 +166,70 @@ if (profileInformations) {
         </div>
 
         <div className={styles.container}>
+          <div className={styles.side}>
+
+          <div className={styles.profileInfo}>
+
+            <div className={styles.imageContainer}>
+              <div className={styles.imageDiv}>
+                <Badge.Ribbon text={'@' + profileInformations.username} color={badgeInfoColor}>
+                  {( profileInformations.profileImg == null) ? <Image src='/user.png' height={120} width={120}/> : <img src={profileInformations.profileImg} height={150} width={150} className={styles.profileImg}/>}
+                </Badge.Ribbon>
+              </div>
+                  {(profileInformations.rank === 'admin') && 
+                    <div className={styles.iconWithUsername}>
+                          <FontAwesomeIcon icon={faIdBadge} className={styles.bardgeIcon} alt={'Admin'} title="Admin"/>
+                          <p className={styles.rank}>Admin</p>
+                    </div>
+                  }
+                  {(profileInformations.rank === 'association') &&
+                    <div className={styles.iconWithUsername}>
+                          <FontAwesomeIcon icon={faPersonCircleCheck} className={styles.bardgeIcon} alt={'PublicAdministration'} title="PublicAdministration"/>
+                          <p className={styles.rank}>Public Admn. Profile</p>
+                    </div>
+                  }
+                  {(profileInformations.rank === 'user') && 
+                      <p className={styles.rank}>
+                          User
+                      </p>
+                  }
+            </div>
+
+            <div className={styles.profileAbout}>
+              <div className={styles.aboutUser}>
+                <div className={styles.profileNames}>
+                  <p>{profileInformations.firstname}</p>
+                  <p>{profileInformations.lastname}</p>
+                </div>
+
+                <p>Location</p>
+                <p>Create 10/02/22</p>
+              </div>
+
+              <div className={styles.contactList}>
+                <Link href='' alt='' className={styles.contactIcon}>
+                  <FontAwesomeIcon icon={faPaperPlane} /> Telegram
+                </Link>
+
+                <Link href='' alt='' className={styles.contactIcon}>
+                  <FontAwesomeIcon icon={faAt} /> E-mail
+                </Link>
+
+                <Link href='' alt='' className={styles.contactIcon}>
+                  <FontAwesomeIcon icon={faSquarePhoneFlip} /> {lang.profile.side.telephone}
+                </Link>
+              </div>
+
+            </div>
+          </div>
+            
+          </div>
+
+          <div className={styles.contentContainer}>
+            <div className={styles.contentDiv}>
+              {myProfileContentContainer()}
+            </div>
+          </div>
 
         </div>
 
