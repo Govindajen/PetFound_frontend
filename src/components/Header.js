@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLangReducer } from '../lib/reducers/account';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faCircleUser, faBars, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faCircleUser, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 
 export default function Header(props) {
@@ -15,6 +15,8 @@ export default function Header(props) {
     const dispatch = useDispatch();
     const account = useSelector((state) => state.account.value);
     const [lang, setLang] = useState({});
+
+    const [openHamburger, setOpenHamburger] = useState(false)
 
 /*  ---------------------------------------------------------------------- */
     const [isClient, setIsClient] = useState(false);
@@ -56,8 +58,11 @@ if (account.lang === 'en') {
 }
 
 
+let hamburgerDisplay = 'none';
 
-
+if(openHamburger !== false) {
+    hamburgerDisplay = 'flex'
+}
 
 
         
@@ -73,8 +78,15 @@ if (account.lang === 'en') {
 
                 <div className={styles.hamburgerMenu}>
                     <span className={styles.hamburgerIcon}>
-                        <FontAwesomeIcon icon={faBars} />
+                        <FontAwesomeIcon icon={faBars} onClick={ () => {setOpenHamburger(!openHamburger)}}/>
                     </span>
+                </div>
+
+                <div className={styles.hamburger} style={{'display': hamburgerDisplay}}>
+                    <span className={styles.hamburgerIcon}>
+                        <FontAwesomeIcon icon={faXmark} onClick={ () => {setOpenHamburger(!openHamburger)}} />
+                    </span>
+                    <p>.</p>
                 </div>
 
 

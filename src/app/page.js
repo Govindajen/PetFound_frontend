@@ -21,6 +21,7 @@ export default function Home(props) {
   const account = useSelector((state) => state.account.value);
   const [threads, setThreads] = useState([''])
   const [lang, setLang] = useState({})
+  const [loading, setLoading] = useState(false)
 
   useEffect( () => {
     fetch('https://pet-found-backend.vercel.app/threads/getall').then( (response) => response.json()).then( (data) => {
@@ -33,15 +34,17 @@ export default function Home(props) {
       setLang(langJSON.FR)
     }
 
+    setLoading(true)
+
 
   }, [])
+
 
   const threadsData = threads.map( (data) => {
     if(data) {
       return (<PetCard username={data.user.username} rank={data.user.rank} petname={data.petname} image={data.image} type={data.type} status={data.status} location={data.location} token={data.token} savedby={data.savedby}/>)
     }
   })
-
 
   return (
     <main className={styles.main} key={'homeMain'}>
@@ -52,7 +55,7 @@ export default function Home(props) {
 
       <div className={styles.container} key='homepage'>
         <div>
-          <p>Home page</p>
+          <p>Banner</p>
         </div>
 
 
@@ -67,9 +70,18 @@ export default function Home(props) {
 
           </div>
         </div>
-        <div className={styles.cardsContainer} key='cardsContainer'>
-          {threadsData}
-        </div>
+            {(loading) ?
+            (
+            <div className={styles.cardsContainer} key='cardsContainer'>
+                  {threadsData}
+            </div>
+            ) : (
+              <div className={styles.loadingContainer}>
+                <img src='https://i.gifer.com/Xqg8.gif' height={300} width={300} />
+                <p>Loading.....</p>
+              </div>
+
+          )}
 
         
       </div>

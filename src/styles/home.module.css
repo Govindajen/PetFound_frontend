@@ -45,7 +45,6 @@
 .leftBarCards {
   height: 100%;
   width: 60%;
-  background-color: blue;
 }
 
 .rightBarCards {
@@ -84,5 +83,12 @@
 }
 /* -----.----------.------------.-----------.---- */
 
-
+.loadingContainer {
+  width: 100%;
+  height: 100%;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* -------------------------------------------------------------------------- */

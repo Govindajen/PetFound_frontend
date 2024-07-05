@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 
-import styles from '../styles/home.module.css';
-import styleModal from '../styles/createPost.module.css'
+import stylesHome from '../styles/home.module.css';
+import styles from '../styles/createPost.module.css'
 
 import { Button, Modal } from 'antd';
 
@@ -46,8 +46,8 @@ const CreatePost = ({ lang }) => {
     if (lang.modal) {
       return (
         <>
-        <button type="primary" onClick={() => setOpen(true)} className={styles.newPostBtn} key='btnCreatePost'>
-            <FontAwesomeIcon icon={faCirclePlus} className={styles.createPostIcon}/> {lang.modal.createPost.btn}
+        <button type="primary" onClick={() => setOpen(true)} className={stylesHome.newPostBtn} key='btnCreatePost'>
+            <FontAwesomeIcon icon={faCirclePlus} className={stylesHome.createPostIcon}/> {lang.modal.createPost.btn}
         </button>
         <Modal
           open={open}
@@ -66,6 +66,10 @@ const CreatePost = ({ lang }) => {
             </Button>
           ]}
         >
+        <div className={styles.main}>
+          <p>lol</p>
+
+        </div>
 
           
         </Modal>
@@ -74,7 +78,7 @@ const CreatePost = ({ lang }) => {
   } else {
     return (
       <>
-        <button type="primary" onClick={() => setOpen(!open)} className={styles.newPostBtn} key='btnCreatePostLoadingProcess'>
+        <button type="primary" onClick={() => setOpen(!open)} className={stylesHome.newPostBtn} key='btnCreatePostLoadingProcess'>
             loading...
         </button>
         </>

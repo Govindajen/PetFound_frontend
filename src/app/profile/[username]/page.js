@@ -1,7 +1,7 @@
 'use client';
 import { Badge } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaw, faAt, faLocationDot, faPaperPlane, faPersonCircleCheck, faBookmark, faIdBadge, faSquarePhoneFlip } from "@fortawesome/free-solid-svg-icons";
+import { faPaw, faAt, faLocationDot, faPaperPlane, faPersonCircleCheck, faBookmark, faIdBadge, faSquarePhoneFlip, faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 
 
 import Header from '../../../components/Header'
@@ -47,7 +47,74 @@ export default function Profile( params ) {
 
     if(profileSection == 'default') {
       return (
-      <p>123</p>
+        <>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+        <p>space test</p>
+
+        </>
     )
     } else {
       return (
@@ -64,7 +131,7 @@ if (profileInformations) {
   let badgeInfoColor = ('blue')
   
   if(profileInformations.rank === 'admin') {
-     badgeInfoColor = ('orange')
+     badgeInfoColor = ('green')
   } else if (profileInformations.rank === 'user') {
     badgeInfoColor = ('blue')
   } else if (profileInformations.rank === 'association') {
@@ -111,26 +178,30 @@ if (profileInformations) {
 
             <div className={styles.profileAbout}>
               <div className={styles.aboutUser}>
+
                 <div className={styles.profileNames}>
-                  <p>{profileInformations.firstname}</p>
-                  <p>{profileInformations.lastname}</p>
+                  <p className={styles.name}>{profileInformations.firstname}</p>
+                  <p className={styles.name}>{profileInformations.lastname}</p>
+                </div>
+                <div className={styles.biographydiv}>
+                  <p>biography</p>
                 </div>
 
-                <p>Location</p>
-                <p>Create 10/02/22</p>
+                <p><span><FontAwesomeIcon icon={faLocationDot} className={styles.bardgeIcon} title="Location"/></span>Paris</p>
+                <p><span><FontAwesomeIcon icon={faCalendarDay} className={styles.bardgeIcon} title="Location"/></span>Since 10/02/22</p>
               </div>
 
               <div className={styles.contactList}>
                 <Link href='' alt='' className={styles.contactIcon}>
-                  <FontAwesomeIcon icon={faPaperPlane} /> Telegram
+                  <FontAwesomeIcon icon={faPaperPlane} /> <span className={styles.socialText}>Telegram</span>
                 </Link>
 
                 <Link href='' alt='' className={styles.contactIcon}>
-                  <FontAwesomeIcon icon={faAt} /> E-mail
+                  <FontAwesomeIcon icon={faAt} /> <span className={styles.socialText}>E-Mail</span>
                 </Link>
 
                 <Link href='' alt='' className={styles.contactIcon}>
-                  <FontAwesomeIcon icon={faSquarePhoneFlip} /> {lang.profile.side.telephone}
+                  <FontAwesomeIcon icon={faSquarePhoneFlip} /> <span className={styles.socialText}>{lang.profile.side.telephone}</span>
                 </Link>
               </div>
 
@@ -138,10 +209,13 @@ if (profileInformations) {
           </div>
 
             <div className={styles.accountSettings}>
-              <p>{lang.profile.side.accountSettings}</p>
-              <p>LEGALS</p>
-              <button onClick={() => { dispatch(setLogout()); location.reload();} }>Logout</button>
-
+              <div>
+                <p>{lang.profile.side.accountSettings}</p>
+                <p>{lang.profile.side.condition}</p>
+              </div>
+              <div className={styles.logoutDiv}>
+                <button className={styles.logoutBtn} onClick={() => { dispatch(setLogout()); location.reload();} }>Logout</button>
+              </div>
             </div>
             
           </div>
@@ -166,9 +240,9 @@ if (profileInformations) {
         </div>
 
         <div className={styles.container}>
-          <div className={styles.side}>
+          <div className={styles.sideOther}>
 
-          <div className={styles.profileInfo}>
+          <div className={styles.profileInfoOther}>
 
             <div className={styles.imageContainer}>
               <div className={styles.imageDiv}>
@@ -197,26 +271,30 @@ if (profileInformations) {
 
             <div className={styles.profileAbout}>
               <div className={styles.aboutUser}>
+
                 <div className={styles.profileNames}>
-                  <p>{profileInformations.firstname}</p>
-                  <p>{profileInformations.lastname}</p>
+                  <p className={styles.name}>{profileInformations.firstname}</p>
+                  <p className={styles.name}>{profileInformations.lastname}</p>
+                </div>
+                <div className={styles.biographydiv}>
+                  <p>biography</p>
                 </div>
 
-                <p>Location</p>
-                <p>Create 10/02/22</p>
+                <p><span><FontAwesomeIcon icon={faLocationDot} className={styles.bardgeIcon} title="Location"/></span>Paris</p>
+                <p><span><FontAwesomeIcon icon={faCalendarDay} className={styles.bardgeIcon} title="Location"/></span>Since 10/02/22</p>
               </div>
 
               <div className={styles.contactList}>
                 <Link href='' alt='' className={styles.contactIcon}>
-                  <FontAwesomeIcon icon={faPaperPlane} /> Telegram
+                  <FontAwesomeIcon icon={faPaperPlane} /> <span className={styles.socialText}>Telegram</span>
                 </Link>
 
                 <Link href='' alt='' className={styles.contactIcon}>
-                  <FontAwesomeIcon icon={faAt} /> E-mail
+                  <FontAwesomeIcon icon={faAt} /> <span className={styles.socialText}>E-Mail</span>
                 </Link>
 
                 <Link href='' alt='' className={styles.contactIcon}>
-                  <FontAwesomeIcon icon={faSquarePhoneFlip} /> {lang.profile.side.telephone}
+                  <FontAwesomeIcon icon={faSquarePhoneFlip} /> <span className={styles.socialText}>{lang.profile.side.telephone}</span>
                 </Link>
               </div>
 
@@ -246,8 +324,11 @@ if (profileInformations) {
         <div className={styles.headerContainer}>
           <Header />
         </div> 
-          <p>If this message is fix, please refresh..</p>
-          <button>REFRESH</button>
+        <div className={styles.errorDiv}>
+          <img src='https://i.gifer.com/Xqg8.gif' height={300} width={300} />
+          <p>Loading.........</p>
+          <button className={styles.errorBtn}>REFRESH</button>
+        </div>
       </main>
 
     </>

@@ -214,3 +214,28 @@
     font-weight: bold;
     background-color: #0a2472;
   }
+
+  @media screen and (max-width: 960px) {
+    .sideLeft {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+    }
+    .sideLeftContainer {
+        display: none;
+    }
+    .sideRight {
+        width: 90%;
+    }
+    .connectionContainer {
+        width: 95%;
+        min-height: 60%;
+    }
+    .backIcon {
+        padding: 6px;
+    
+        font-size: 26px;
+        color: white;
+        cursor: pointer;
+    }
+  }

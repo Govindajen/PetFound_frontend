@@ -10,10 +10,6 @@ export default function PetCart ( props ) {
 
     const account = useSelector((state) => state.account.value);
 
-    let bookmarkDisplay = 'block';
-    if(account.username === props.username) {
-        bookmarkDisplay = 'none';
-    }
 
     
     return (
@@ -52,10 +48,14 @@ export default function PetCart ( props ) {
                         <p title="Pet name">
                             {props.petname}
                         </p>
-                        <div>
-                            <FontAwesomeIcon icon={faBookmark}  className={styles.bookmarkIcon} title='Save this post' style={{'display': `${bookmarkDisplay}`}}/>
-                            {(account.username === props.username) && (
+                        <div className={styles.bookmarkDiv}>
+                            {(account.username === props.username) ? (
                                 <FontAwesomeIcon icon={faTrashCan}  className={styles.bookmarkIcon} title='Delete this post'/>
+                            ) : (
+                                <>
+                                <p>0</p>
+                                <FontAwesomeIcon icon={faBookmark}  className={styles.bookmarkIcon} title='Save this post'/>
+                                </>
                             )}
                         </div>
                     </div>

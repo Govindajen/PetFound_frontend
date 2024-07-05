@@ -192,6 +192,9 @@
 .hamburgerMenu {
     display: none;
 }
+.hamburger {
+    display: none;
+}
 
 
 .langOption {
@@ -235,6 +238,19 @@
     }
     .hamburgerIcon:hover {
         color: #FFC60A;
+    }
+
+    .hamburger {
+        right: 0;
+        background-color: rgba(81, 158, 10, 0.603);
+        top: 0;
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        height: 100%;
     }
 
     .searchBarContainer {

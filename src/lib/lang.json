@@ -17,7 +17,8 @@
         "profile": {
             "side": {
                 "telephone": "Telephone",
-                "accountSettings": "Settings"
+                "accountSettings": "Settings",
+                "condition": "Legal conditions"
             }
         }
     },
@@ -40,7 +41,8 @@
         "profile": {
             "side": {
                 "telephone": "Téléphone",
-                "accountSettings": "Parametres"
+                "accountSettings": "Paramètres",
+                "condition": "Conditions légales"
             }
         }
     }

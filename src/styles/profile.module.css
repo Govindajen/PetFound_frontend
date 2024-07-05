@@ -6,7 +6,7 @@
 }
 
 .headerContainer {
-  height: 10vh;
+  height: 10%;
   padding: 16px;
 
   border-bottom: 2px solid rgb(0, 0, 0, 0.7);
@@ -14,24 +14,39 @@
 }
 
 .container {
+    overflow: auto;
     width: 100%;
-    height: 90vh;
+    height: 90%;
     padding: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.side {
-    width: 30%;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.side,
+.sideOther {
+  width: 30%;
+  height: 550px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  overflow: auto;
 }
 
 /* SIDE TOP ------------------------------------------------------------ */
 .profileInfo {
+    width: 100%;
+    height: 75%;
+    background-color: rgb(240, 240, 240, 0.7);
+    border-radius: 10px;
+    padding: 6px;
+
+    display: flex;
+    flex-direction: column;
+}
+.profileInfoOther {
     width: 100%;
     height: 70%;
     background-color: rgb(240, 240, 240, 0.7);
@@ -43,7 +58,7 @@
 }
 .imageContainer {
     width: 100%;
-    max-height: 50%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,22 +93,42 @@
 .bardgeIcon {
     margin: 0 6px;
 }
-.profileNames {
-    display: flex;
-    justify-content: space-around;
-}
 
 /* ----------------------------- */
 .aboutUser {
     width: 100%;
-    height: 40%;
-    background-color: rgb(10, 190, 55);
+    height: 70%;
 }
+
+.profileNames {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+.name {
+    margin: 0 3px
+}
+.biographydiv{
+    font-size: 13px;
+    width: 100%;
+    max-height: 70%;
+    margin-bottom: 4px;
+    padding: 3px;
+    border-radius: 5px;
+    overflow: auto;
+    border: 1px solid rgb(169, 169, 169, 0.5);
+
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+}
+
 
 .contactList {
     width: 100%;
-    height: 20%;
+    height: 25%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -108,13 +143,44 @@
 }
 
 /* ^^^^^^^^^ SIDE TOP ------------------------------------------------------------ */
+
+/* SIDE BTN ----------------------------------------------------------------------- */
 .accountSettings {
     width: 100%;
-    height: 20%;
     background-color: rgb(240, 240, 240, 0.7);
     border-radius: 10px;
     padding: 6px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+.logoutDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoutBtn {
+    margin: 6px 0;
+    border-radius: 20px;
+    border: transparent;
+    width: 70px;
+    height: 24px;
+    cursor: pointer;
+    background-color: azure;
+  }
+  .logoutBtn:hover {
+    transition: 0.8s;
+    border: transparent;
+    background-color: #FFC60A;
+  }
+
+  /* -------------------------------------------------------------------------------------- */
+
+
+/* ^^^^^^^^^^^^^^^^^^^ SIDE BTN ----------------------------------------------------------------------- */
+
 
 
 .contentContainer {
@@ -127,25 +193,77 @@
 
 .contentDiv {
     width: 100%;
-    height: 100%;
     background-color: rgb(240, 240, 240, 0.7);
     border-radius: 10px;
     padding: 6px;
 }
 
 
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
+.errorDiv {
+    width: 100%;
+    height: 90vh;
 
-
-
-
+    padding: 64px;
+    font-size: 2em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.errorBtn {
+    margin: 16px;
+    border-radius: 20px;
+    border: transparent;
+    width: 128px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+  }
+  .errorBtn:hover {
+    transition: 0.8s;
+    border: transparent;
+    background-color: #FFC60A;
+  }
 
 
 /* ------------------------------------------------------------------------------- */
 
 
 @media screen and (max-width: 960px) {
-    .main {
+    .container {
+        flex-direction: column;
+    }
+    .side, .sideOther {
+        width: 100%;
+        padding: 0;
+    }
+    .profileInfoOther {
+        height: 100%;
+    }
+    .contentContainer {
+        padding: 0;
+        padding-top: 16px;
+        height: auto;
+        width: 100%;
+    }
+    .socialText {
+        display: none;
+    }
+/*
+    .profileImg {
+        max-width: 120px;
+        max-height: 120px;
+    }
+*/
+}
+
+
+/*     
+.main {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -160,12 +278,30 @@
         justify-content: space-evenly;
     }
     .side {
+        margin-bottom: 12px;
         width: 100%;
-        height: 80%;
+        height: auto;
         padding: 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+      }
+      .sideOther {
+        margin-bottom: 12px;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+    .profileInfoOther {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(240, 240, 240, 0.7);
+        border-radius: 10px;
+        padding: 6px;
+    
+        display: flex;
+        flex-direction: column;
     }
     .contentContainer {
         width: 100%;
@@ -174,5 +310,15 @@
         flex-direction: column;
         justify-content: space-between;
     }
+    .contentDiv {
+        height: 100%;
+    }
+    .socialText {
+        display: none;
+    }
+    .profileImg {
+        max-width: 120px;
+        max-height: 120px;
+    }
+ */
     
-}
