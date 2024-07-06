@@ -241,6 +241,9 @@
         width: 100%;
         padding: 0;
     }
+    .sideOther {
+        height: 450px;
+    }
     .profileInfoOther {
         height: 100%;
     }
