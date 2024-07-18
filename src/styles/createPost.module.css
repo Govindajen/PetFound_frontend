@@ -13,9 +13,138 @@
 }
 
 .main {
+    overflow: auto;
     width: 100%;
     height: 100%;
     padding: 16px;
 
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* ---------------------------------------------------------------- */
+.photoContainer {
+    padding: 6px;
+    border-radius: 10px;
+    background-color: #a6e1fa;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputImage {
+    padding: 3px;
+    max-width: 100%;
+}
+
+.inputImage::file-selector-button {
+    width: 64px;
+    height: 32px;
+    background-color: white;
+    border: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+.inputImage::file-selector-button:hover {
+    transition: 0.8s;
+    background-color: #FFC60A;
+  }
+
+
+/* ---------------------------------------------------------------- */
+
+/* input area of pet ---------------------------------------------- */
+.inputArea {
+    width: 65%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inputContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.subInputContainer {
+    display: flex;
+    width: 70%;
+    padding: 6px 0 6px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputs {
+  background-color: #a6e1fa;
+  width: 180px;
+  height: 44px;
+  margin: 0 6px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+    .inputs:focus {
+    border-color: transparent;
+    outline: none;
+    }
+.inputLabel {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.selectInput {
+  background-color: #a6e1fa;
+  width: 180px;
+  height: 44px;
+  margin: 0 6px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+.numberInput {
+    background-color: #a6e1fa;
+    width: 100px;
+    height: 44px;
+    margin: 2px 6px;
+  
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.5em;
+  }
+
+/* ^^^^^^^^^^^^^ input area of pet ---------------------------------------------- */
+
+@media screen and (max-width: 960px) {
+    .main {
+        padding: 6px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .photoContainer {
+        width: 100%;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inputArea {
+        width: 100%;
+    }
+    .inputContainer {
+        width: 100%;
+    }
+    .subInputContainer {
+        width: 100%;
+    }
 }

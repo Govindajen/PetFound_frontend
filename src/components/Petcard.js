@@ -14,28 +14,28 @@ export default function PetCart ( props ) {
     
     return (
         
-        <main className={styles.main} key={props.token}>
+        <main className={styles.main} >
             <div className={styles.imageContainer} key='cardsImageContainer'>
-                <div className={styles.type}>
-                    <div className={styles.topType}>
-                        <p >
-                            {(props.type == "found" ) ?
+                <div className={styles.category}>
+                    <div className={styles.categoryTop}>
+                        <p key='lostOrFoundElement'>
+                            {(props.category == "found" ) ?
                             (
-                            <span className={styles.found}>Found</span>
+                            <span className={styles.found} key='petCardFound'>Found</span>
                                 ) : (
-                            <span className={styles.Lost}>Lost</span>
+                            <span className={styles.Lost} key='petCardLost'>Lost</span>
                             )
                             }
                         </p>
                     </div>
 
-                    <div className={styles.centerType} onClick={ () => {window.location.replace(`/profile/${encodeURIComponent(props.username)}`)}}>
+                    <div className={styles.categoryCenter} onClick={ () => {window.location.replace(`/announce/${encodeURIComponent(props.id)}`)}} key='hoverToPost'>
                         
                     </div>
 
 
                 </div>
-                <img src={props.image} className={styles.theImage}/>
+                <img src={props.imageUrl} className={styles.theImage} key='imagePet' alt={props.petname + ' imagePet'}/>
             </div>
 
             <div className={styles.cardDescription} key='cardsDesc'>
@@ -46,7 +46,7 @@ export default function PetCart ( props ) {
                     </div>
                     <div className={styles.descTextTop}>
                         <p title="Pet name">
-                            {props.petname}
+                            {props.petName}
                         </p>
                         <div className={styles.bookmarkDiv}>
                             {(account.username === props.username) ? (
@@ -67,12 +67,12 @@ export default function PetCart ( props ) {
                     </div>
                     <div className={styles.descText}>
                         <p>
-                            {props.location}
+                            {props.location.postalCode}
                         </p>
                     </div>
                 </div>
 
-                <div className={styles.cardDescriptionSection}>
+                <div className={styles.cardDescriptionSection} key='cardDescription'>
                     <div className={styles.descSection}>
                         <FontAwesomeIcon icon={faCircleUser} className={styles.cardIcon} />
                     </div>

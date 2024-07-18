@@ -67,7 +67,7 @@ if(openHamburger !== false) {
 
         
         return (
-            <div className={styles.main}>
+            <div className={styles.main} key='headerMain'>
                 <div className={styles.logoContainer}>
                     <Link className={styles.link} href={`/`}>
                         <p className={styles.petText}>Pet 
@@ -82,7 +82,7 @@ if(openHamburger !== false) {
                     </span>
                 </div>
 
-                <div className={styles.hamburger} style={{'display': hamburgerDisplay}}>
+                <div className={styles.hamburger} style={{'display': hamburgerDisplay}} key='hamburgerDisplayMenu'>
                     <div className={styles.logoContainer}>
                         <div className={styles.logo}>
                                 <p className={styles.petText}>Pet 
@@ -117,7 +117,7 @@ if(openHamburger !== false) {
                         <button className={styles.searchBtn}>{lang.header.searchBar.btn}</button>
                     </div>
 
-                        <div className={styles.profileContainerHamburger}>
+                        <div className={styles.profileContainerHamburger} key='hamburgerProfile'>
                             <div className={styles.usernameDiv}>
                                 {account.username ? (
                                     <>

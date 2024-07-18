@@ -112,7 +112,7 @@ const handleSignIn = () => {
 
 
     let signIn = (
-        <div className={styles.connectionContainer}>
+        <div className={styles.connectionContainer} key='signInDiv'>
 
             <h2>Connection</h2>
 
@@ -148,7 +148,7 @@ const handleSignIn = () => {
         </div>
     );
     let signUp = (
-        <div className={styles.connectionContainer}>
+        <div className={styles.connectionContainer} key='signUpDiv'>
             <h2>Create Account</h2>
 
             <div className={styles.inputsContainer}>

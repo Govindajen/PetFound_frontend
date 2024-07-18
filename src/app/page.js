@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
+import moment from 'moment'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
@@ -19,13 +20,15 @@ import { useSelector } from "react-redux";
 export default function Home(props) {
 
   const account = useSelector((state) => state.account.value);
-  const [threads, setThreads] = useState([''])
+  const [posts, setPosts] = useState([''])
   const [lang, setLang] = useState({})
   const [loading, setLoading] = useState(false)
+  const timestamp = Date.now()
+  const currentDate = new Date(timestamp)
 
   useEffect( () => {
-    fetch('https://pet-found-backend.vercel.app/threads/getall').then( (response) => response.json()).then( (data) => {
-      setThreads(data)
+    fetch('https://pet-found-backend.vercel.app/posts/getall').then( (response) => response.json()).then( (data) => {
+      setPosts(data)
     })
 
     if(account.lang === 'en') {
@@ -39,21 +42,24 @@ export default function Home(props) {
 
   }, [])
 
+  console.log(timestamp * 1000)
+  console.log(currentDate.getMonth())
 
-  const threadsData = threads.map( (data) => {
+
+  const postsData = posts.map( (data) => {
     if(data) {
-      return (<PetCard username={data.user.username} rank={data.user.rank} petname={data.petname} image={data.image} type={data.type} status={data.status} location={data.location} token={data.token} savedby={data.savedby}/>)
+      return (<PetCard username={data.user.username} rank={data.user.rank} petName={data.petName} imageUrl={data.imageUrl} category={data.category} status={data.status} location={data.location} token={data.token} bookmarks={data.bookmarks} key={data.token} postId={data.postId}/>)
     }
   })
 
   return (
-    <main className={styles.main} key={'homeMain'}>
-      <div className={styles.headerContainer}>
+    <main className={styles.main} key='homeMain'>
+      <div className={styles.headerContainer} key='headerContainerHome'>
         <Header />
       </div>
 
 
-      <div className={styles.container} key='homepage'>
+      <div className={styles.container} key='bannerHome'>
         <div>
           <p>Banner</p>
         </div>
@@ -65,7 +71,7 @@ export default function Home(props) {
             btns filter
           </div>
 
-          <div className={styles.rightBarCards}>
+          <div className={styles.rightBarCards} key='modalCreatePost'>
             <CreatePost lang={lang}/>
 
           </div>
@@ -73,10 +79,10 @@ export default function Home(props) {
             {(loading) ?
             (
             <div className={styles.cardsContainer} key='cardsContainer'>
-                  {threadsData}
+                  {postsData}
             </div>
             ) : (
-              <div className={styles.loadingContainer}>
+              <div className={styles.loadingContainer} key='loadingDog'>
                 <img src='https://i.gifer.com/Xqg8.gif' height={300} width={300} />
                 <p>Loading.....</p>
               </div>

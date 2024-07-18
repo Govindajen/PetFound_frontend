@@ -11,7 +11,24 @@
         "modal": {
             "createPost": {
                 "btn": "Create Post",
-                "titleModal": "Create a new Post"
+                "titleModal": "Create a new Post",
+                "titleInformations": "Informations of the Pet",
+                "petname": "Pet name",
+                "category": "Category",
+                "found": "Found",
+                "lost": "Lost",
+                "location": "Location",
+                "postalCode": "Postal Code    ",
+                "km": "Radius in km",
+                "inDate": "in Date",
+                "petType": "Type of pet",
+                "type": {
+                    "dog": "Dog 🐶",
+                    "cat": "Cat 🐱",
+                    "rabbit": "Rabbit 🐰",
+                    "bird": "Bird 🦜"
+                }
+
             }
         },
         "profile": {
@@ -35,7 +52,23 @@
         "modal": {
             "createPost": {
                 "btn": "Creer Post",
-                "titleModal": "Creer un nouveau post"
+                "titleModal": "Creer un nouveau post",
+                "titleInformations": "Informations de l'animal",
+                "petname": "Prénom",
+                "category": "Catégorie",
+                "found": "Trouvé",
+                "lost": "Perdu",
+                "location": "Localisation",
+                "postalCode": "Code postal    ",
+                "km": "Rayon en km",
+                "inDate": "en date",
+                "petType": "Type animal",
+                "type": {
+                    "dog": "Chien 🐶",
+                    "cat": "Chat 🐱",
+                    "rabbit": "Lapin 🐰",
+                    "bird": "Oiseau 🦜"
+                }
             }
         },
         "profile": {
