@@ -22,6 +22,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+
 /* ---------------------------------------------------------------- */
 .photoContainer {
     padding: 6px;
@@ -146,5 +148,6 @@
     }
     .subInputContainer {
         width: 100%;
+        flex-direction: column;
     }
 }

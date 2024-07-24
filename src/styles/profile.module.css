@@ -193,6 +193,7 @@
 
 .contentDiv {
     width: 100%;
+    height: 100%;
     background-color: rgb(240, 240, 240, 0.7);
     border-radius: 10px;
     padding: 6px;
@@ -233,6 +234,64 @@
 /* ------------------------------------------------------------------------------- */
 
 
+
+/* profileSection = DEFAULT ----------------------- */
+.defaultSection {
+    width: 100%;
+    height: 100%;
+}
+/* ----------------------------- */
+.btnBar {
+    width: 100%;
+    height: 64px;
+    padding: 6px 12px 6px 12px;
+}
+.btnsContainer {
+    width: 100%;
+    height: 56px;
+    background-color: white;
+    padding: 6px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+}
+
+
+.btn {
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 0px;
+    border: 1px solid transparent;
+    border-bottom: 2px solid black;
+    width: 128px;
+    height: 40px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .btn:hover {
+    transition: 0.8s;
+    border: transparent;
+    color: #FFC60A;
+    border-bottom: 2px solid #9e7900;
+  }
+  .createPostIcon {
+    margin: 0 3px;
+  }
+
+/* ------------------------------- */
+
+.cardsContainer {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+}
+
+/* ------------------------------------------------ */
+
+
 @media screen and (max-width: 960px) {
     .container {
         flex-direction: column;
@@ -255,6 +314,9 @@
     }
     .socialText {
         display: none;
+    }
+    .cardsContainer {
+        justify-content: space-evenly;
     }
 /*
     .profileImg {

@@ -149,11 +149,14 @@ const handleUpload = async () => {
           width={1000}
           height={250}
           footer={[
+            <Button danger key="resetInfo" tyope="danger" onClick={handleCancel}>
+              {lang.modal.createPost.resetBtn}
+            </Button>,
             <Button key="back" onClick={handleCancel}>
-              Return
+              {lang.modal.createPost.backbtn}
             </Button>,
             <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-              Submit
+              {lang.modal.createPost.submitBtn}
             </Button>
           ]}
         >

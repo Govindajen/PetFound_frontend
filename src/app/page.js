@@ -6,23 +6,32 @@ import moment from 'moment'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
 import langJSON from '../lib/lang.json'
 import styles from "../styles/home.module.css";
 import PetCard from '../components/Petcard';
 
+
 import Header from '../components/Header';
 import CreatePost from "@/components/newpost";
 
+import { setCoordinates } from '../lib/reducers/account';
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 
-export default function Home(props) {
+export default function Home (props) {
+
+  const dispatch = useDispatch();
 
   const account = useSelector((state) => state.account.value);
   const [posts, setPosts] = useState([''])
   const [lang, setLang] = useState({})
   const [loading, setLoading] = useState(false)
+
+  const [position, setPosition] = useState({ latitude: null, longitude: null });
+
   const timestamp = Date.now()
   const currentDate = new Date(timestamp)
 
@@ -39,12 +48,22 @@ export default function Home(props) {
 
     setLoading(true)
 
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        dispatch(setCoordinates({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }));
+      });
+    } else {
+      console.log("Geolocation is not available in your browser.");
+    }
+
 
   }, [])
 
   console.log(timestamp * 1000)
   console.log(currentDate.getMonth())
-
 
   const postsData = posts.map( (data) => {
     if(data) {

@@ -13,6 +13,8 @@ const initialState = {
     token: null,
     profileImg: null,
     lang: 'en',
+    latitude: 0,
+    longitude: 0
   },
 };
 
@@ -40,6 +42,10 @@ export const accountSlice = createSlice({
           state.value.token = null;
           state.value.profileImg = null;
       },
+      setCoordinates: (state, action) => {
+        state.value.longitude = action.payload.longitude;
+        state.value.latitude = action.payload.latitude;
+    },
       setLangReducer: (state, action) => {
         console.log(action.payload)
         if (action.payload === 'en') {
@@ -53,6 +59,6 @@ export const accountSlice = createSlice({
     },
   });
   
-  export const { setLogin, setLogout, setLangReducer } = accountSlice.actions;
+  export const { setLogin, setLogout, setLangReducer, setCoordinates } = accountSlice.actions;
   export default accountSlice.reducer;
   

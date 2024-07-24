@@ -7,6 +7,9 @@ import { faPaw, faAt, faLocationDot, faPaperPlane, faPersonCircleCheck, faBookma
 import Header from '../../../components/Header'
 import styles from '../../../styles/profile.module.css';
 
+import PetCard from '../../../components/Petcard';
+import NewPost from '../../../components/newpost';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import langJSON from '../../../lib/lang.json'
@@ -24,15 +27,23 @@ export default function Profile( params ) {
 
   const [profileInformations, setProfileInformations] = useState(null);
   const [profileSection, setProfileSection] = useState('default');
+  const [posts, setPosts] = useState([''])
   const [lang, setLang] = useState({});
 
+
   useEffect( () => {
-    fetch(`https://pet-found-backend.vercel.app/users/profileinformations/${routerUsername}`).then( response => response.json()).then( (data) => {
+     fetch(`https://pet-found-backend.vercel.app/users/profileinformations/${routerUsername}`).then( response => response.json()).then( (data) => {
       if(data.result) {
-        setProfileInformations(data.user)
+
+        fetch(`https://pet-found-backend.vercel.app/posts/allmyposts/${data.user.token}`).then( (response) => response.json())
+          .then( 
+            (data) => {
+          setPosts(data.posts)
+        })
+      setProfileInformations(data.user)
+  
       }
     })
-
     if(account.lang === 'en') {
       setLang(langJSON.EN)
     } else if (account.lang === 'fr') {
@@ -41,6 +52,12 @@ export default function Profile( params ) {
 
   }, [])
 
+  const postsData = posts.map( (data) => {
+    if(data) {
+      return (<PetCard username={data.user.username} rank={data.user.rank} petName={data.petName} imageUrl={data.imageUrl} category={data.category} status={data.status} location={data.location} token={data.token} bookmarks={data.bookmarks} key={data.token} postId={data.postId}/>)
+    }
+  })
+
 
 
   const myProfileContentContainer =  () => {
@@ -48,72 +65,42 @@ export default function Profile( params ) {
     if(profileSection == 'default') {
       return (
         <>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
+        {profileInformations.token === account.token ?
+      (     
+        <div className={styles.defaultSection}>
 
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
+          <div className={styles.btnBar}>
+            <div className={styles.btnsContainer}>
 
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
-        <p>space test</p>
+              <button className={styles.btn} style={(profileSection == 'default') ? {'color': 'orange'} : {'color': 'black'}}>My Post</button>
+              <NewPost lang={lang}/>
+              <button className={styles.btn} style={(profileSection == 'bookmark') ? {'color': 'orange'} : {'color': 'black'}}>Bookmarks</button>
 
+            </div>
+          </div> {/* END OF BTNS BAR */}
+
+          <div className={styles.cardsContainer}>
+              {postsData}
+          </div>
+        </div>
+    ) : (
+        <div className={styles.defaultSection}>
+
+        <div className={styles.btnBar}>
+          <div className={styles.btnsContainer}>
+
+            <p>{profileInformations.firstname}'s Posts</p>
+
+          </div>
+        </div> {/* END OF BTNS BAR */}
+
+        <div className={styles.cardsContainer}>
+          {(posts.length > 0) ? postsData : <p>No posts.</p>}
+          
+        </div>
+      </div>
+    )
+        }
         </>
     )
     } else {
