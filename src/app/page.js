@@ -6,7 +6,7 @@ import moment from 'moment'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+//import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 import langJSON from '../lib/lang.json'
 import styles from "../styles/home.module.css";
